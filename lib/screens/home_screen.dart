@@ -9,8 +9,18 @@ import 'anime_detail_screen.dart';
 import 'search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
+  // =====================================================
+  // ESTADO DEL TEMA
+  // =====================================================
+
+  final bool isDarkMode;
+
+  final VoidCallback onThemeChanged;
+
   const HomeScreen({
     super.key,
+    required this.isDarkMode,
+    required this.onThemeChanged,
   });
 
   @override
@@ -78,6 +88,28 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
 
         actions: [
+          // =============================================
+          // CAMBIAR TEMA
+          // =============================================
+
+          IconButton(
+            onPressed: widget.onThemeChanged,
+
+            tooltip: widget.isDarkMode
+                ? 'Cambiar a modo claro'
+                : 'Cambiar a modo oscuro',
+
+            icon: Icon(
+              widget.isDarkMode
+                  ? Icons.light_mode
+                  : Icons.dark_mode,
+            ),
+          ),
+
+          // =============================================
+          // BUSCAR ANIME
+          // =============================================
+
           IconButton(
             onPressed: () {
               Navigator.push(
@@ -88,9 +120,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               );
             },
+
             icon: const Icon(
               Icons.search,
             ),
+
             tooltip: 'Buscar anime',
           ),
         ],

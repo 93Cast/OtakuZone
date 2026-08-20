@@ -173,4 +173,4 @@ class JikanService {
       'No se pudo obtener el anime.',
     );
   }
-}
+} 

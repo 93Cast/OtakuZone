@@ -101,5 +101,5 @@ class AnimeCard extends StatelessWidget {
         ],
       ),
     );
-  }
+  } 
 }
